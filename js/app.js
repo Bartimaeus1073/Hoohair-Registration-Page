@@ -6,7 +6,6 @@ app.constant("FORM", "templates/form.html");
 
 app.controller("formCtrl", ["$scope", "$firebaseObject", "RESPONSE_DUPLICATE", "RESPONSE_REGISTERED", "FORM", function($scope, $firebaseObject, responseDuplicate, responseRegistered, form) {
   
-  var isRegistering = false;
   $scope.info = {
     email: ''
   };
@@ -20,14 +19,15 @@ app.controller("formCtrl", ["$scope", "$firebaseObject", "RESPONSE_DUPLICATE", "
   $scope.reset = function() {
     $scope.formTemplate = form;
     $scope.emailValid = false;
+    $scope.isRegistering = false;
   };
                               
   $scope.register = function() {
-    if (isRegistering) {
+    if ($scope.isRegistering) {
       return;
     }
     
-    isRegistering = true;
+    $scope.isRegistering = true;
     
     var path = "Website/";
     var ref = firebase.database().ref(path);
@@ -49,7 +49,7 @@ app.controller("formCtrl", ["$scope", "$firebaseObject", "RESPONSE_DUPLICATE", "
         $scope.formTemplate = responseDuplicate;
       }
       
-      isRegistering = false;
+      $scope.isRegistering = false;
     });
   };
                               
