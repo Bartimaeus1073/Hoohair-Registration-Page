@@ -87,8 +87,15 @@
   vertical-align: middle;
 }
 
-#main-page div#form-wrapper {
+#main-page div#registration-wrapper {
   flex-grow: 1.7;
+  margin: auto;
+}
+
+#main-page div#form-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  height: 170px;
 }
 
 #main-page form {
