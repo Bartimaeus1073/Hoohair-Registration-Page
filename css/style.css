@@ -1,0 +1,128 @@
+* {
+  margin: 0px;
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../fonts/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+  		url('../fonts/Roboto-Light.woff') format('woff'),
+  		url('../fonts/Roboto-Light.ttf')  format('truetype'),
+  		url('../fonts/Roboto-Light.svg#Roboto-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+  		url('../fonts/Roboto-Regular.woff') format('woff'),
+  		url('../fonts/Roboto-Regular.ttf')  format('truetype'),
+  		url('../fonts/Roboto-Regular.svg#Roboto-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#main-page {
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: linear-gradient(#55EDCC, #5BCDFD);
+  text-align: center;
+  font-family: 'Roboto-Light', Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+#main-page > div {
+  flex-grow: 1;
+}
+
+#main-page div#logo {
+  flex-grow: 0.5;
+}
+
+#main-page #logo > img {
+  max-width: 300px;
+}
+
+#main-page div#header {
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: auto;
+}
+
+#main-page input {
+  color: white;
+}
+
+#main-page hr {
+  border: none;
+  height: 1px;
+  background-color: white;
+  max-width: 500px;
+  margin: auto;
+}
+
+#main-page a {
+  display: inline-table;
+  color: #58DDE3;
+  font-size: 25px;
+  margin: 0px 10px;
+  background-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+}
+
+#main-page a:hover {
+  background-color: #333;
+  opacity: 0.4;
+}
+
+#main-page a > i {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#main-page div#form-wrapper {
+  flex-grow: 1.7;
+}
+
+#main-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-page .form-item {
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
+#main-page input {
+  padding: 10px 15px;
+  margin: 20px auto;
+  width: 250px;
+}
+
+#main-page button {
+  color: white;
+  padding: 8px 20px;
+  margin: auto;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+#main-page button:hover {
+  color: #5ACEFB;
+  background-color: white;
+  cursor: pointer;
+}
+
+#main-page input::-webkit-input-placeholder {
+  color: white !important;
+}
