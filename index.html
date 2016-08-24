@@ -8,11 +8,14 @@
     
     <title>Hoohair</title>
     
-    <!-- Angular -->
+    <!-- Angular and Firebase -->
     <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
     
     <!-- My js -->
+    <script src="js/connect.js"></script>
     <script src="js/app.js"></script>
   </head>
 <body>
@@ -45,22 +48,19 @@
     </div>
     <div id="registration-wrapper">
       <div class="form-wrapper" ng-controller="formCtrl">
-        <div class="animate-hide" ng-hide="registered">
+        <div class="animate-hide" ng-hide="isRegistered;">
           <form ng-submit="register();">
             <p>
               Be the first to know about Hoohair
             </p>
-            <input class="form-item" placeholder="Email address" ng-model="email">
-            <button class="form-item" type="submit">
+            <input class="form-item" placeholder="Email address" ng-change="checkEmail();" ng-model="email">
+            <button class="form-item" type="submit" ng-disabled="!emailValid">
               Register
             </button>
           </form>
         </div>
-        <div class="animate-hide" ng-hide="!registered">
-          <p>
-            Thank you we will be in touch soon,<br>
-            keep an eye out for our updates!
-          </p>
+        <div class="animate-hide" ng-hide="!isRegistered;">
+          <div ng-include="responseTemplateUrl"></div>
         </div>
       </div>
     </div>

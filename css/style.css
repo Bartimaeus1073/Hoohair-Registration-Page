@@ -106,8 +106,8 @@
   position: absolute;
   display: flex;
   align-items: center;
-  height: 170px;
-  width: 250px;
+  height: 100%;
+  width: 100%;
   opacity: 1;
   transition: all linear 0.5s;
 }
@@ -146,6 +146,16 @@
   color: #5ACEFB;
   background-color: white;
   cursor: pointer;
+}
+
+#main-page button:disabled {
+  opacity: 0.5;
+}
+
+#main-page button:disabled:hover {
+  cursor: default;
+  color: white;
+  background-color: transparent;
 }
 
 #main-page input::-webkit-input-placeholder {
