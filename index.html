@@ -10,6 +10,7 @@
     
     <!-- Angular -->
     <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
     
     <!-- My js -->
     <script src="js/app.js"></script>
@@ -43,20 +44,24 @@
       <hr>
     </div>
     <div id="registration-wrapper">
-      <div id="form-wrapper" ng-controller="formCtrl">
-        <form ng-submit="register();" ng-hide="registered">
+      <div class="form-wrapper" ng-controller="formCtrl">
+        <div class="animate-hide" ng-hide="registered">
+          <form ng-submit="register();">
+            <p>
+              Be the first to know about Hoohair
+            </p>
+            <input class="form-item" placeholder="Email address" ng-model="email">
+            <button class="form-item" type="submit">
+              Register
+            </button>
+          </form>
+        </div>
+        <div class="animate-hide" ng-hide="!registered">
           <p>
-            Be the first to know about Hoohair
-          </p>
-          <input class="form-item" placeholder="Email address" ng-model="email">
-          <button class="form-item" type="submit">
-            Register
-          </button>
-        </form>
-        <p ng-show="registered">
             Thank you we will be in touch soon,<br>
             keep an eye out for our updates!
           </p>
+        </div>
       </div>
     </div>
   </div>

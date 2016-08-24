@@ -2,6 +2,10 @@
   margin: 0px;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 @font-face {
   font-family: 'Roboto-Light';
   src: url('../fonts/Roboto-Light.eot?#iefix') format('embedded-opentype'),
@@ -88,14 +92,28 @@
 }
 
 #main-page div#registration-wrapper {
-  flex-grow: 1.7;
-  margin: auto;
+  flex-grow: 1.5;
 }
 
-#main-page div#form-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+#main-page .form-wrapper {
+  position: relative;
+  margin: auto;
+  width: 250px;
   height: 170px;
+}
+
+#main-page .form-wrapper .animate-hide {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 170px;
+  width: 250px;
+  opacity: 1;
+  transition: all linear 0.5s;
+}
+
+#main-page .form-wrapper .animate-hide.ng-hide {
+  opacity: 0;
 }
 
 #main-page form {
