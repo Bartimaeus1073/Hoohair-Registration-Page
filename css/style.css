@@ -33,7 +33,10 @@
   background: linear-gradient(#55EDCC, #5BCDFD);
   text-align: center;
   font-family: 'Roboto-Light', Verdana, sans-serif;
-  display: flex;
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
   flex-direction: column;
 }
 
@@ -51,10 +54,17 @@
 
 #main-page div#header {
   flex-grow: 2;
-  display: flex;
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
   align-items: center;
   color: white;
   margin: auto;
+}
+
+#main-page h2 {
+  width: 100%; // fix for safari
 }
 
 #main-page input {
