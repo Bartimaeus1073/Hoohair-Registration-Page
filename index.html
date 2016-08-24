@@ -48,7 +48,7 @@
     </div>
     <div id="registration-wrapper">
       <div class="form-wrapper" ng-controller="formCtrl">
-        <div ng-include="formTemplate">
+        <div ng-class="[{'should-animate': !firstTime}]" ng-include="formTemplate">
         </div>
       </div>
     </div>

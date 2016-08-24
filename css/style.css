@@ -108,22 +108,21 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  opacity: 1;
+}
+
+.should-animate.ng-enter {
+  opacity: 0;
   -webkit-transition: all linear 0.5s;
   -moz-transition: all linear 0.5s;
   -o-transition: all linear 0.5s;
   transition: all linear 0.5s;
 }
 
-#main-page .form-wrapper div.ng-enter {
-    opacity: 0;
-}
-
-#main-page .form-wrapper div.ng-enter.ng-enter-active {
+.should-animate.ng-enter.ng-enter-active {
     opacity: 1;
 }
 
-#main-page .form-wrapper div.ng-leave.ng-leave-active {
+.should-animate.ng-leave.ng-leave-active {
     opacity: 0;
 }
 
