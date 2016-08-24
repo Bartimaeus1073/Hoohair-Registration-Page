@@ -1,0 +1,9 @@
+<form ng-submit="register();">
+  <p>
+    Be the first to know about Hoohair
+  </p>
+  <input class="form-item" placeholder="Email address" ng-change="checkEmail();" ng-model="info.email">
+  <button class="form-item" type="submit" ng-disabled="!emailValid">
+    Register
+  </button>
+</form>

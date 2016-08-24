@@ -48,19 +48,7 @@
     </div>
     <div id="registration-wrapper">
       <div class="form-wrapper" ng-controller="formCtrl">
-        <div class="animate-hide" ng-hide="isRegistered;">
-          <form ng-submit="register();">
-            <p>
-              Be the first to know about Hoohair
-            </p>
-            <input class="form-item" placeholder="Email address" ng-change="checkEmail();" ng-model="email">
-            <button class="form-item" type="submit" ng-disabled="!emailValid">
-              Register
-            </button>
-          </form>
-        </div>
-        <div class="animate-hide" ng-hide="!isRegistered;">
-          <div ng-include="responseTemplateUrl"></div>
+        <div ng-include="formTemplate">
         </div>
       </div>
     </div>

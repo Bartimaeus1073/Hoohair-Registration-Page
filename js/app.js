@@ -1,38 +1,38 @@
-const REGISTERED_SUCCESS = "templates/registred.html";
-const REGISTERED_DUPLICATE = "templates/duplicate.html";
-
 var app = angular.module("Hoohair", ["ngAnimate", "firebase"]);
 
-app.controller("formCtrl", function($scope, $firebaseObject) {
-  $scope.responseTemplateUrl = "";
-  $scope.emailValid = false;
-  $scope.isRegistered = false;
-  var isRegistering = false;
+app.constant("RESPONSE_DUPLICATE", "templates/duplicate-response.html");
+app.constant("RESPONSE_REGISTERED", "templates/registered-response.html");
+app.constant("FORM", "templates/form.html");
+
+app.controller("formCtrl", ["$scope", "$firebaseObject", "RESPONSE_DUPLICATE", "RESPONSE_REGISTERED", "FORM", function($scope, $firebaseObject, responseDuplicate, responseRegistered, form) {
   
+  var isRegistering = false;
+  $scope.info = {
+    email: ''
+  };
+                              
   $scope.checkEmail = function() {
     var vRe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
-    $scope.emailValid = vRe.test($scope.email);
+    $scope.emailValid = vRe.test($scope.info.email);
   }
   
   $scope.reset = function() {
-    console.log("reset");
+    $scope.formTemplate = form;
+    $scope.emailValid = false;
   };
-  
+                              
   $scope.register = function() {
     if (isRegistering) {
-      return
+      return;
     }
-    
-    var path = "Website/";
-    var ref = firebase.database().ref(path);
-    var value = {
-      email: $scope.email
-    };
     
     isRegistering = true;
     
-    var query = $firebaseObject(ref.orderByChild("email").equalTo($scope.email));
+    var path = "Website/";
+    var ref = firebase.database().ref(path);
+    var value = $scope.info;
+    var query = $firebaseObject(ref.orderByChild("email").equalTo(value.email));
     
     query.$loaded().then(function(snapshot) {
       var isDuplicate = false;
@@ -44,13 +44,15 @@ app.controller("formCtrl", function($scope, $firebaseObject) {
       // register if there is no duplicate
       if (!isDuplicate) {
         ref.push(value);
-        $scope.responseTemplateUrl = REGISTERED_SUCCESS;
+        $scope.formTemplate = responseRegistered;
       } else {
-        $scope.responseTemplateUrl = REGISTERED_DUPLICATE;
+        $scope.formTemplate = responseDuplicate;
       }
       
-      $scope.isRegistered = true;
       isRegistering = false;
     });
   };
-});
+                              
+  $scope.reset();
+  
+}]);
